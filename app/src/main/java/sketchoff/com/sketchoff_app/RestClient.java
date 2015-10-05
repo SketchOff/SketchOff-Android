@@ -17,7 +17,9 @@ import java.io.UnsupportedEncodingException;
  * Created by yako on 10/5/15.
  */
 public class RestClient {
-        private static final String BASE_URL = "http://localhost:3000/";
+
+        //USE 10.0.3.2 for Genymotion emulator, USE 10.0.2.2 for Android Studio Emulator
+        private static final String BASE_URL = "http://10.0.3.2:3000/";
 
         private static AsyncHttpClient client = new AsyncHttpClient();
 
