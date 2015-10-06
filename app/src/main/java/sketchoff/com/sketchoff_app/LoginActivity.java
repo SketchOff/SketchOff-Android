@@ -160,15 +160,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 RestClient.postJSON(getApplicationContext(), "api/auth/signin", credentials, new JsonHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+
                         showProgress(false);
                         //TODO: Should finish be called after or before new activity started? Is there a better activity transition?
                         finish();
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
                         //TODO: How to handle saving login?
-//                        preferences.put("email", mEmailView.getText().toString());
-//                        preferences.put("password", mPasswordView.getText().toString());
+                        preferences.put("email", mEmailView.getText().toString());
+                        preferences.put("password", mPasswordView.getText().toString());
                     }
+
                     @Override
                     public void onFailure(int statusCode, Header[] headers, byte[] errorResponse, Throwable e) {
                         // called when response HTTP status is "4XX" (eg. 401, 403, 404)
